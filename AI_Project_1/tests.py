@@ -9,45 +9,34 @@ location_data = location_file.readlines()
 connection_file.close()  # close file
 location_file.close()
 
-#path = DFS.DFS("G4b", "G2b", sorted_adj_list, Get_Connections)
-#path = DFS.DFS("B1", "C1", sorted_adj_list, Get_Connections)
-#path = DFS.DFS("C1", "B1", sorted_adj_list, Get_Connections)
 
 def main():
 
     Adj_List = DFS.Construct_data_array(connections_data)
-    Cordinate_List = DFS.Construct_data_array(location_data)
-
     sorted_adj_list = DFS.Sort_Adjency_List(Adj_List)
 
-    """ 
-    print("Adjency List:")
-    for item in Adj_List:
+    for item in sorted_adj_list:
         print(item)
 
-    print("Sorted Adjency List")
+    print("------------------------------------------")
+
+    def Delete_Node(node, adj_list):
+        for i in range(0, len(adj_list)):
+            if adj_list[i][0] == node:
+                del adj_list[i]
+                break
+        for i in range(0, len(adj_list)):
+            row = adj_list[i]
+            for j in range(0,len(row)):
+                if row[j] == node:
+                    del row[j]
+                    break
+
+    Delete_Node("A2", sorted_adj_list)
 
     for item in sorted_adj_list:
-         print(item) """
+        print(item)
 
-    """     print("TESTS")
-    print(DFS.Get_Connections("A1",sorted_adj_list))
-    print(DFS.Get_Locations("A1",Cordinate_List))
-    print(DFS.Get_Index("A1", sorted_adj_list))
-    print(DFS.distance_calc("A1", "A2",Cordinate_List)) """
 
-    """  print("Cordinate List:")
-
-    for item in Cordinate_List:
-        print(item) """
-
-    path = DFS.DFS("C1", "B1", sorted_adj_list, DFS.Get_Connections)
-
-    if path == False:
-        print("Path not found")
-    else:
-        print("\n")
-        DFS.PrintPathStack(path, Cordinate_List)
-    
-
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+     main()
