@@ -1,4 +1,3 @@
-#this is a test
 class Map():
     """Maps are undirected graphs whose nodes have locations and connections"""
 
@@ -42,10 +41,9 @@ class Map():
                   "\t\tConnections:" + str(connections))
 
     def deleteNode(self, node):
-        to_be_deleted = node
         for item in self.connections_dictionary.values():
-            if to_be_deleted in item:
-                item.remove(to_be_deleted)
+            if node in item:
+                item.remove(node)
         del self.connections_dictionary[node]
         del self.locations_dictionary[node]
 
