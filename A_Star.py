@@ -22,7 +22,7 @@ def calculate_heuristic(node, goal, amount_traversed, map, type):
     return estimate + amount_traversed
 
 def main():
-    my_map = Map.Map("connections.txt", "locations.txt") #needed dor operator for imported files
+    my_map = Map.Map("connections.txt", "locations.txt") #needed dot operator for imported files
 
 if __name__ == "__main__":
     main()
