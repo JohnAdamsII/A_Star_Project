@@ -1,9 +1,8 @@
-import Map
+from map import Map
 from math import sqrt
 import heapq
 
 def calculate_heuristic(node, goal, amount_traversed, map, type):
-    estimate = 0 #had an error before is this what you wanted?
     if type == False:
         #get node coordinates
         node_location = map[node]
@@ -23,7 +22,7 @@ def calculate_heuristic(node, goal, amount_traversed, map, type):
     return estimate + amount_traversed
 
 def main():
-    my_map = Map.Map("connections.txt", "locations.txt") #needed dot operator for imported files
+    my_map = Map("connections.txt", "locations.txt") #needed dot operator for imported files
 
 if __name__ == "__main__":
     main()

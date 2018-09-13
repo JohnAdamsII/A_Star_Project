@@ -40,13 +40,15 @@ class Map():
             print("Node:" + key + " \t\tLocation:" + str(value) +
                   "\t\tConnections:" + str(connections))
 
-    def deleteNode(self, node):
-        for item in self.connections_dictionary.values():
-            if node in item:
-                item.remove(node)
-        del self.connections_dictionary[node]
-        del self.locations_dictionary[node]
+    def exclude_node(self, excluded_node):
+        excluded_connections = self.connections_dictionary[excluded_node]
+        del self.connections_dictionary[excluded_node]
+        del self.locations_dictionary[excluded_node]
 
+        for node in excluded_connections:
+            target_list = self.connections_dictionary[node]
+            target_list.remove(excluded_node) 
+           
 
 def main():
 
@@ -56,7 +58,7 @@ def main():
     print("************************************************************")
 
     my_map2 = Map("connections.txt", "locations.txt")
-    my_map2.deleteNode("A1")
+    my_map2.exclude_node("A1")
     my_map2.print_all()
 
 
