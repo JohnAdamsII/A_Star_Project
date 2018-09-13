@@ -1,5 +1,6 @@
 import Map
 from math import sqrt
+import heapq
 
 def calculate_heuristic(node, goal, amount_traversed, map, type):
     estimate = 0 #had an error before is this what you wanted?
